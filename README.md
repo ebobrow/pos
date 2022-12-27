@@ -1,0 +1,79 @@
+# POS (Parts of Speech)
+
+A very ambitious and _very_ bad programming language.
+
+## Vision
+
+Object/typedef is a `noun`, instances of the object are `properNoun`s. This
+means capitalization conventions are switched? Instead of dot notation to
+access field use `'s ` notation. Much better
+```
+noun city has
+    string name,
+    int population
+
+city LosAngeles.
+LosAngeles's name = "Los Angeles".
+LosAngeles's population = 100.
+```
+Functions are `verbs`. Comments start with `--`
+```
+-- TODO: can't decide about function headers
+verb fibbonacci(int n) -> int
+do
+    if n == 0 || n == 1 then
+        n
+    else
+        fibbonacci (n-1) + fibbonacci (n-2)
+    end
+end
+```
+Rust-style traits are `adjectives`. Periods instead of semicolons.
+```
+adjective cloneable can
+    -- TODO: `Self` implied like Java
+    verb clone(Self) -> self
+
+city is cloneable because
+    verb clone(Self) -> self
+    do
+        city NewCity.
+        -- `my` is syntactic sugar for `Self's`
+        NewCity's name = my name.
+        NewCity's population = my population.
+        NewCity
+    end
+```
+TODO: adverbs
+
+`it` register? Most recently modified variable?
+```
+city Atlantis.
+-- `its` syntactic sugar for `Atlantis's`
+-- If you try to use `it's` here, the compiler will smite you
+its name is "Atlantis".
+-- `it` syntactic sugar for `Atlantis`
+print (its name). -- -> Atlantis
+
+int X = 5.
+print it. -- -> 5
+```
+Lists can be made by pluralizing.
+```
+verb max(cities List) -> city
+do
+    -- Functions called without parentheses
+    if length List == 1 then
+        -- indexing
+        its 0
+    else
+        int TailMax = max (List's 1..).
+        if List's 0 > it then
+            List's 0
+        else
+            -- TailMax
+            it
+        end
+    end
+end
+```
