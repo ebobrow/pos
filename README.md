@@ -19,24 +19,29 @@ LosAngeles's population = 100.
 Functions are `verbs`. Comments start with `--`
 ```
 -- TODO: can't decide about function headers
-verb fibbonacci(int n) -> int
-do
+verb fibbonacci turns int n into int
+by
     if n == 0 || n == 1 then
         n
     else
         fibbonacci (n-1) + fibbonacci (n-2)
     end
 end
+
+-- Parens around args are optional for 1, required for 0 or >1
+verb add turns (int a, int b) into int by
+    a + b
+end
 ```
 Rust-style traits are `adjectives`. Periods instead of semicolons.
 ```
 adjective cloneable can
-    -- TODO: `Self` implied like Java
-    verb clone(Self) -> self
+    -- `Self` implied like Java
+    verb clone turns () into self
 
 city is cloneable because
-    verb clone(Self) -> self
-    do
+    verb clone turns () into self
+    by
         city NewCity.
         -- `my` is syntactic sugar for `Self's`
         NewCity's name = my name.
@@ -51,7 +56,7 @@ TODO: adverbs
 city Atlantis.
 -- `its` syntactic sugar for `Atlantis's`
 -- If you try to use `it's` here, the compiler will smite you
-its name is "Atlantis".
+its name = "Atlantis".
 -- `it` syntactic sugar for `Atlantis`
 print (its name). -- -> Atlantis
 
@@ -60,12 +65,12 @@ print it. -- -> 5
 ```
 Lists can be made by pluralizing.
 ```
-verb max(cities List) -> city
-do
+verb max turns cities List into city
+by
     -- Functions called without parentheses
     if length List == 1 then
         -- indexing
-        its 0
+        List's 0
     else
         int TailMax = max (List's 1..).
         if List's 0 > it then
