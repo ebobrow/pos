@@ -4,6 +4,9 @@ A very ambitious and _very_ bad programming language.
 
 ## Vision
 
+TODO: I think it should be dynamically typed for my own sanity.
+JS-style objects which are HashMaps and repurpose `noun` for var-decls?
+
 Object/typedef is a `noun`, instances of the object are `properNoun`s. This
 means capitalization conventions are switched? Instead of dot notation to
 access field use `'s ` notation. Much better
@@ -34,6 +37,7 @@ verb add turns (int a, int b) into int by
 end
 ```
 Rust-style traits are `adjectives`. Periods instead of semicolons.
+If dynamically typed, non of these?
 ```
 adjective cloneable can
     -- `Self` implied like Java
@@ -63,7 +67,7 @@ print (its name). -- -> Atlantis
 int X = 5.
 print it. -- -> 5
 ```
-Lists can be made by pluralizing.
+Lists can be made by pluralizing. :( can't do this if dynamically typed.
 ```
 verb max turns cities List into city
 by
